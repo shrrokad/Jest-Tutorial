@@ -7,7 +7,7 @@ type GreetProps = {
 export const Greet = (props: GreetProps) => {
     return (
         <>
-            <h1>greet {props.name}</h1>
+            <h1>greet {props.name ? props.name : "Guest"}</h1>
         </>
     )
 }
