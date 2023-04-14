@@ -5,6 +5,8 @@ describe('Application', () => {
     test('renders correctly', () => {
         render(<Application/>);
 
+        // getByRole
+
         const pageHadingElement = screen.getByRole('heading', {
             // name: 'Job Appliction from',
             level: 1,
@@ -24,7 +26,7 @@ describe('Application', () => {
         expect(textElement).toBeInTheDocument();
 
         const bioElement = screen.getByRole('textbox', {
-            name: 'Bio',
+            name: 'BioDescription',
         });
         expect(bioElement).toBeInTheDocument();
 
@@ -36,5 +38,43 @@ describe('Application', () => {
 
         const submitButtonElement = screen.getByRole('button');
         expect(submitButtonElement).toBeInTheDocument();
+
+        // getBylabelText
+
+        const nameElement = screen.getByLabelText('Name');
+        expect(nameElement).toBeInTheDocument();
+
+        const bioElement1 = screen.getByLabelText('BioDescription');
+        expect(bioElement1).toBeInTheDocument();
+
+        // getByPlaceholderText
+
+        const nameElement1 = screen.getByPlaceholderText('Please Enter Your Name');
+        expect(nameElement1).toBeInTheDocument();
+
+       // getByText
+
+        const textElement1 = screen.getByText('All fields are mandatory');
+        expect(textElement1).toBeInTheDocument();
+
+        // getByDisplayValue
+
+        const nameElement2 = screen.getByDisplayValue('Shruti');
+        expect(nameElement2).toBeInTheDocument();
+
+        // getByAltText
+
+        const imageElement = screen.getByAltText('Image');
+        expect(imageElement).toBeInTheDocument();
+
+        // getByTitle
+
+        const closeElement = screen.getByTitle('close');
+        expect(closeElement).toBeInTheDocument();
+
+        // getByTestId
+
+        const customElement = screen.getByTestId('custom-element');
+        expect(customElement).toBeInTheDocument();
     });
 })
